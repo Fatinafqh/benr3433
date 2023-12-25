@@ -1,0 +1,109 @@
+###
+//register as visitor
+post http://localhost:3000/register/visitor
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "name":"Chan",
+    "gender":"Male",
+    "age":"22",
+    "date_of_birth":"8 May 2000",
+    "ethnicity":"Malay",
+    "citizenship":"malaysia",
+    "license_number":"44444"
+}
+
+
+//the following are the insert of visitor doc(visitor's own data only)
+###
+
+post http://localhost:3000/register/visitor/doc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"8 Nov 2033",
+    "passport":"111"
+}
+
+###
+
+post http://localhost:3000/register/visitor/address
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "address":"4, jalan 4, taman 4, 44444 klang4,kedah",
+    "town":"taman 4",
+    "postcode":"44444",
+    "state":"kedah",
+    "country":"malaysia"
+}
+
+###
+post http://localhost:3000/register/visitor/other
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "visitor_category":"normal visitor",
+    "telephone_number":"4444444",
+    "vehicle_type":"toyota",
+    "vehicle_number":"bnr4444",
+    "pre_register_pass_no":"4444"
+}
+
+###
+post http://localhost:3000/register/visitor/additional
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "fever":"no",
+    "Sore_throat":"no",
+    "dry_cough":"no",
+    "runny_nose":"no",
+    "shortness_of_breath":"no",
+    "body_ache":"no",
+    "travelled_overseas_last14days":"no",
+    "contact_with_person_with_covid":"no",
+    "recovered_from_covid":"no",
+    "covid_test":"yes"
+}
+
+
+
+###
+post http://localhost:3000/register/visitor/detail
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "no_of_visitor":"8",
+    "purpose_of_visit":"see family",
+    "To_meet_host":"TTT",
+    "host_info":"family",
+    "location_department":"A-2",
+    "unit_no":"333",
+    "location_info":"inside tall appartment",
+    "permit_no":"003",
+    "remarks":"with Chan"
+}
+
+###
+
+post http://localhost:3000/register/visitor/visitation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+Content-Type: application/json
+
+{
+    "visit_date":"14 June 2022",
+    "checkin_time":"10:30",
+    "visit_expiry_time":"13:30",
+    "overtime_status":"not overtime",
+    "detail_id":"6494d09e7429415b549a211e"
+
+}
+
+

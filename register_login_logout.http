@@ -1,0 +1,102 @@
+
+//test to see what is encoded in jwt
+###
+get http://localhost:3000/showjwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5OTI3OWYxYWQ5YTI1YmVlYjQxZmMxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc3NTg3Njl9.9DcIXWyHB2nw2xNHWbuKBs1TVVcjtPOvB_koniwDvlc
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"Tan",
+    "password":"1234567",
+    "name":"Tan Le",
+    "gender":"Female",
+    "age":"25",
+    "role":"security"
+}
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"Chan",
+    "password":"123456",
+    "name":"Chan Zen Yang",
+    "gender":"Male",
+    "age":"22",
+    "role":"visitor"
+}
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"Ali",
+    "password":"123456",
+    "name":"Alili",
+    "gender":"Male",
+    "age":"22",
+    "role":"visitor"
+}
+
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"NG",
+    "password":"123456",
+    "name":"Ng Wei Jie",
+    "gender":"Male",
+    "age":"22",
+    "role":"admin"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"NG",
+    "password":"123456"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Chan",
+    "password":"123456"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Tan",
+    "password":"1234567"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Ali",
+    "password":"123456"
+}
+
+###
+patch http://localhost:3000/logout
+Content-Type: application/json
+
+{
+    "username":"NG"
+}
