@@ -1,0 +1,11 @@
+{
+  "name": "benr3433",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"node index.js\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
