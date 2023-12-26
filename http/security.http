@@ -1,0 +1,229 @@
+###
+//register as visitor
+post http://localhost:3000/register/visitor
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "name":"Tan Le",
+    "gender":"Male",
+    "age":"22",
+    "date_of_birth":"5 Dec 2001",
+    "ethnicity":"chinese",
+    "citizenship":"malaysia",
+    "license_number":"222"
+}
+
+
+//the following are the insert of visitor doc
+###
+
+post http://localhost:3000/register/visitor/doc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"23 Jan 2029",
+    "passport":"111"
+}
+
+###
+
+post http://localhost:3000/register/visitor/address
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "address":"2, jalan 2, taman 2, 22222 klang2,kedah",
+    "town":"taman 2",
+    "postcode":"22222",
+    "state":"kedah",
+    "country":"malaysia"
+}
+
+###
+post http://localhost:3000/register/visitor/other
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "visitor_category":"security as visitor",
+    "telephone_number":"2222222",
+    "vehicle_type":"Myvi",
+    "vehicle_number":"bnr2222",
+    "pre_register_pass_no":"22222"
+}
+
+###
+post http://localhost:3000/register/visitor/additional
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "fever":"no",
+    "Sore_throat":"no",
+    "dry_cough":"no",
+    "runny_nose":"no",
+    "shortness_of_breath":"no",
+    "body_ache":"no",
+    "travelled_overseas_last14days":"no",
+    "contact_with_person_with_covid":"no",
+    "recovered_from_covid":"no",
+    "covid_test":"yes"
+}
+
+###
+post http://localhost:3000/register/visitor/detail
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "no_of_visitor":"2",
+    "purpose_of_visit":"catching a overtime visitor",
+    "To_meet_host":"Yang",
+    "host_info":"overtime visitor visit this host",
+    "location_department":"A-2",
+    "unit_no":"222",
+    "location_info":"inside tall appartment",
+    "permit_no":"002",
+    "remarks":"no"
+}
+
+###
+
+post http://localhost:3000/register/visitor/visitation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "visit_date":"14 June 2022",
+    "checkin_time":"13:00",
+    "visit_expiry_time":"no limit",
+    "overtime_status":"lll",
+    "detail_id":"6486fc81db3985a850f7419e"
+
+}
+
+//admin and security read data from database based on criteria they insert
+//if admin or security wants to read all doc from a collection,just put an empty json file
+###
+post http://localhost:3000/security/user/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+
+}
+
+
+###
+post http://localhost:3000/security/user/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "username":"NG"
+}
+
+###
+post http://localhost:3000/security/visitor/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+   
+}
+
+###
+post http://localhost:3000/security/doc/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "passport":"111"
+}
+
+###
+post http://localhost:3000/security/address/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGQ1YjBmNWM2YWY2N2U4OTNjODkxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzU2MzZ9.XvFQOIt8ABNvrq2CZu3yjLZ1Uqbtkp173e4cYS_ezec
+Content-Type: application/json
+
+{
+    "town":"taman 2"
+}
+
+###
+post http://localhost:3000/security/other/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Content-Type: application/json
+
+{
+    "vehicle_type":"Myvi"
+}
+
+###
+post http://localhost:3000/security/additional/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Content-Type: application/json
+
+{
+    "fever":"yes"
+}
+
+###
+post http://localhost:3000/security/blacklist/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+    "blacklist_status":"no"
+}
+
+###
+post http://localhost:3000/security/detail/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxOTg0fQ.ZAMzyr2psNslOpRDoP0FP8pY3jxCSUGWRwS6fSP9SPU
+Content-Type: application/json
+
+{
+   "overtime_status":"overtime"
+}
+
+###
+post http://localhost:3000/security/visitation/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2ZlZmJmYWIwODE1ZjM3ZmExMzc4Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjM0MzcxfQ.CGxtVAHsjucWvqq8xavaM078evm7ZKJUH0nFEZ06VrA
+Content-Type: application/json
+
+{
+    "visit_date":"14 June 2022"
+}
+
+//the following can be used by both admin and security
+###
+patch http://localhost:3000/security/blacklist/update/6494ce797429415b549a20db
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "blacklist_status":"yes",
+    "reason":"no",
+    "remark":"nothing"
+}
+
+###
+patch http://localhost:3000/security/detail/update/6494cf717429415b549a20fd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "To_meet_host":"Cheok"
+}
+
+###
+patch http://localhost:3000/security/visitation/update/6494cfaf7429415b549a2104
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+Content-Type: application/json
+
+{
+    "checkout_time":"23:55",
+    "overtime_status":"overtime"
+}
