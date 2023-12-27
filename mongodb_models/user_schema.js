@@ -14,14 +14,6 @@ const userschema = mongoose.Schema(
             type: String,
             required: true
         },
-        gender:{
-            type: String,
-            required: true
-        },
-        age:{
-            type: Number,
-            required: true
-        },
         role:{
             type: String,
             required: true
@@ -30,7 +22,7 @@ const userschema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,ref:'Visitor'
         },
         login_status:{
-            type:String
+            type: Boolean
         }
     },
     { versionKey: false }
