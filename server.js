@@ -6,53 +6,6 @@ const Visitor = require('./mongodb_models/visitor_schema')
 const Pass = require('./mongodb_models/visitor_pass_schema')
 const jwt = require('jsonwebtoken')
 const app = express()
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-
-
-const port = process.env.PORT || 3000;
-const JWT_SECRET='12bob12ou2b1ob';
-
-
-app.use(express.json())
-
-const options = {
-    definition: {
-      openapi: '3.0.0',
-      info: {
-        title: 'WJ BENR3433 INFORMATION SECURITY assignment ',
-        version: '1.0.0',
-      },
-      tags:[
-        { name: 'test', description: 'testing endpoints' },
-        { name: 'User', description: 'Endpoints related to users' },
-        { name: 'Visitor', description: 'Endpoints related to visitor' },
-        { name: 'Read', description: 'Endpoints to read own file' },
-        { name: 'For Admin Only', description: 'Endpoints for admin to manage user' },
-      ],
-      components: {
-        securitySchemes: {
-            Authorization: {
-                type: "http",
-                scheme: "bearer",
-                bearerFormat: "JWT",
-                value: "Bearer <JWT token here>",
-                description:"this is for authentication only, to log out, please use the logout api. Logout here won't log you out of the account"
-            }
-          }
-        },
-      servers:[
-        {
-            url: 'fatin.azurewebsites.net'
-            //url: 'http://localhost:3000'
-        }
-      ]
-    },
-    apis: ['./swagger.js'],
-  };
-  
-  const openapiSpecification = swaggerJsdoc(options);
-  app.use('/swagger', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 
  mongoose.connect('mmongodb+srv://fatin:fatin8501@cluster0.v6mchhf.mongodb.net/vms')
@@ -66,48 +19,43 @@ const options = {
  })
 
 
-/**
- * @swagger
- * tags:
- *   name: Hello
- *   description: Hello World API
- */
 
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Get a greeting message
- *     tags: [Hello]
- *     responses:
- *       200:
- *         description: Successful response with a greeting message
- *         content:
- *           text/plain:
- *             schema:
- *               type: string
- *               example: Hello World! WJ
- */
  app.get('/', (req, res) => {
     res.send('Hello World! WJ')
  })
 
+// swagger middleware
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const options = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'fatinadlina VMS API',
+            version: '1.0.0',
+        },
+    },
+    apis: ['./index.js'],
+};
 
-/**
- * @swagger
- * tags:
- *   name: Authentication
- *   description: User registration and authentication API
- */
+// swagger docs
+const specs = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+// Connect to MongoDB
+MongoClient.connect(url, /{ useUnifiedTopology: true }/)
+  .then((client) => {
+    console.log('Connected to MongoDB');
+    const db = client.db(dbName);
+
 
 /**
  * @swagger
  * /register:
  *   post:
  *     summary: Register a new user
- *     tags: [Authentication]
+ *     tags:
+ *       - User
  *     requestBody:
- *       required: true
  *       content:
  *         application/json:
  *           schema:
@@ -115,13 +63,10 @@ const options = {
  *             properties:
  *               username:
  *                 type: string
- *                 description: The username for the new user.
  *               password:
  *                 type: string
- *                 description: The password for the new user.
  *               name:
  *                 type: string
- *                 description: The name of the new user.
  *     responses:
  *       200:
  *         description: User registered successfully
@@ -132,13 +77,10 @@ const options = {
  *               properties:
  *                 username:
  *                   type: string
- *                   description: The username of the registered user.
  *                 name:
  *                   type: string
- *                   description: The name of the registered user.
  *                 message:
  *                   type: string
- *                   description: A success message.
  *       409:
  *         description: Username has been taken
  *         content:
@@ -154,8 +96,8 @@ const options = {
  *               properties:
  *                 message:
  *                   type: string
- *                   description: An error message.
  */
+
  app.post('/register', async(req, res) => {
     try {
         const { username, password, name} = req.body;
