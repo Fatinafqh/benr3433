@@ -65,97 +65,10 @@ const options = {
      console.log(error)
  })
 
-
-/**
- * @swagger
- * tags:
- *   name: Hello
- *   description: Hello World API
- */
-
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Get a greeting message
- *     tags: [Hello]
- *     responses:
- *       200:
- *         description: Successful response with a greeting message
- *         content:
- *           text/plain:
- *             schema:
- *               type: string
- *               example: Hello World! WJ
- */
  app.get('/', (req, res) => {
     res.send('Hello World! WJ')
  })
 
-
-/**
- * @swagger
- * tags:
- *   name: Authentication
- *   description: User registration and authentication API
- */
-
-/**
- * @swagger
- * /register:
- *   post:
- *     summary: Register a new user
- *     tags: [Authentication]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               username:
- *                 type: string
- *                 description: The username for the new user.
- *               password:
- *                 type: string
- *                 description: The password for the new user.
- *               name:
- *                 type: string
- *                 description: The name of the new user.
- *     responses:
- *       200:
- *         description: User registered successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 username:
- *                   type: string
- *                   description: The username of the registered user.
- *                 name:
- *                   type: string
- *                   description: The name of the registered user.
- *                 message:
- *                   type: string
- *                   description: A success message.
- *       409:
- *         description: Username has been taken
- *         content:
- *           text/plain:
- *             schema:
- *               type: string
- *       500:
- *         description: Internal Server Error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   description: An error message.
- */
  app.post('/register', async(req, res) => {
     try {
         const { username, password, name} = req.body;
