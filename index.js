@@ -55,7 +55,7 @@ const options = {
   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 
- mongoose.connect('mmongodb+srv://fatin:fatin8501@cluster0.v6mchhf.mongodb.net/vms')
+ mongoose.connect('mongodb+srv://fatin:fatin8501@cluster0.v6mchhf.mongodb.net/vms')
  .then(()=>{
      console.log('connected to mongodb')
      app.listen(port,() => {
@@ -66,7 +66,7 @@ const options = {
  })
 
  app.get('/', (req, res) => {
-    res.send('Hello World! WJ')
+    res.send('Hello World! ')
  })
 
  app.post('/register', async(req, res) => {
