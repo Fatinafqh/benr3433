@@ -20,7 +20,7 @@ const options = {
     definition: {
       openapi: '3.0.0',
       info: {
-        title: 'WJ BENR3433 INFORMATION SECURITY assignment ',
+        title: 'WJ BENR3433 INFORMATION SECURITY assignment G15',
         version: '1.0.0',
       },
       tags:[
@@ -43,7 +43,8 @@ const options = {
         },
       servers:[
         {
-            url: 'fatin.azurewebsites.net'
+            url: 'https://benr3433-information-security-assignment.azurewebsites.net/'
+            //remember to change current ip address in MongoDB Network Access List
             //url: 'http://localhost:3000'
         }
       ]
@@ -65,9 +66,13 @@ const options = {
      console.log(error)
  })
 
+
+
  app.get('/', (req, res) => {
-    res.send('Hello World! ')
+    res.send('Hello World!')
  })
+
+
 
  app.post('/register', async(req, res) => {
     try {
