@@ -20,7 +20,7 @@ const options = {
     definition: {
       openapi: '3.0.0',
       info: {
-        title: 'WJ BENR3433 INFORMATION SECURITY assignment G15',
+        title: 'FATIN BENR3433 INFORMATION SECURITY assignment G15',
         version: '1.0.0',
       },
       tags:[
